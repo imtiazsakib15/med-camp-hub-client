@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import logo from "../../../../public/med-camp-logo.png";
+import logo from "/med-camp-logo.png";
 import SectionContainer from "../SectionContainer/SectionContainer";
 
 const Navbar = () => {

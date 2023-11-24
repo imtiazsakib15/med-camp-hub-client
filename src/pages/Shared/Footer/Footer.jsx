@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../../../../public/med-camp-logo.png";
+import logo from "/med-camp-logo.png";
 import { BsFacebook, BsGoogle, BsTwitter } from "react-icons/bs";
 import SectionContainer from "../SectionContainer/SectionContainer";
 
@@ -45,9 +45,9 @@ const Footer = () => {
               <p>
                 <Link
                   className="inline-flex gap-x-2 text-gray-300 hover:text-gray-200"
-                  to="/cart"
+                  to="/contact-us"
                 >
-                  Cart
+                  Contact Us
                 </Link>
               </p>
             </div>
@@ -79,7 +79,7 @@ const Footer = () => {
           </div>
         </div>
         <hr />
-        <div className="mt-5 sm:mt-8 text-center">
+        <div className="py-5 sm:py-8 text-center">
           <p className="text-sm text-gray-300">
             &copy; {new Date().getFullYear()}{" "}
             <Link className="underline" to="/">
