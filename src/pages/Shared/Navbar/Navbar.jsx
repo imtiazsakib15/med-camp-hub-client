@@ -8,9 +8,9 @@ const Navbar = () => {
     <nav className="bg-white border-b border-gray-200">
       <SectionContainer>
         <div className="flex flex-wrap items-center justify-between py-4">
-          <Link to="/" className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-2">
             <img src={logo} className="h-8" alt="Logo" />
-            <span className="text-2xl font-semibold whitespace-nowrap">
+            <span className="text-2xl font-semibold font-mono whitespace-nowrap">
               MedCamp Hub
             </span>
           </Link>
@@ -27,7 +27,7 @@ const Navbar = () => {
                 >
                   <span className="sr-only">Open user menu</span>
                   <img
-                    className="w-8 h-8 rounded-full"
+                    className="w-8 h-8 rounded-full border-2 border-violet-800"
                     src="/docs/images/people/profile-picture-3.jpg"
                     alt="user photo"
                   />
