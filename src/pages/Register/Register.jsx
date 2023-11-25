@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
-import axiosPublic from "../../hooks/useAxiosPublic";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { MdErrorOutline } from "react-icons/md";
 import Swal from "sweetalert2";
 
@@ -13,6 +13,7 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
@@ -25,7 +26,7 @@ const Register = () => {
             role: data?.role,
           };
           axiosPublic.post("/users", userInfo).then((res) => {
-            if (res.data?.insertedId) {
+            if (res.data?._id) {
               Swal.fire({
                 title: "Good job!",
                 text: `Register Successfully!`,
@@ -192,9 +193,7 @@ const Register = () => {
                         })}
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block w-full p-2.5"
                       >
-                        <option value="" selected>
-                          Choose a role
-                        </option>
+                        <option value="">Choose a role</option>
                         <option value="Organizer">Organizer</option>
                         <option value="Healthcare Professional">
                           Healthcare Professional
