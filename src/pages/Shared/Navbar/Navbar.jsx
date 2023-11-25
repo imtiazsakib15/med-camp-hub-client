@@ -36,7 +36,7 @@ const Navbar = () => {
     <nav className="bg-white border-b border-gray-200">
       <SectionContainer>
         <div className="flex flex-wrap items-center justify-between py-4">
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2 py-0.5 sm:py-1">
             <img src={logo} className="h-7 sm:h-8" alt="Logo" />
             <span className="text-xl sm:text-2xl font-semibold font-mono whitespace-nowrap">
               MedCamp Hub
@@ -56,7 +56,7 @@ const Navbar = () => {
                   />
                 </button>
                 <div
-                  className={`z-50 mt-3 text-base absolute top-14 right-8 list-none bg-white divide-y divide-gray-100 rounded-lg shadow ${
+                  className={`z-50 mt-5 text-base absolute top-14 right-8 list-none bg-white divide-y divide-gray-100 rounded-lg shadow ${
                     showUserInfo ? "block" : "hidden"
                   }`}
                 >
@@ -71,7 +71,7 @@ const Navbar = () => {
                   <ul className="py-2">
                     <li onClick={() => setShowUserInfo(false)}>
                       <Link
-                        to="/profile"
+                        to="/dashboard/profile"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       >
                         Profile
