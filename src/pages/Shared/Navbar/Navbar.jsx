@@ -1,16 +1,20 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "/med-camp-logo.png";
 import SectionContainer from "../SectionContainer/SectionContainer";
+import useAuth from "../../../hooks/useAuth";
+import { useState } from "react";
 
 const Navbar = () => {
-  const user = false;
+  const { user } = useAuth();
+  const [showUserInfo, setShowUserInfo] = useState(false);
+
   return (
     <nav className="bg-white border-b border-gray-200">
       <SectionContainer>
         <div className="flex flex-wrap items-center justify-between py-4">
           <Link to="/" className="flex items-center space-x-2">
-            <img src={logo} className="h-8" alt="Logo" />
-            <span className="text-2xl font-semibold font-mono whitespace-nowrap">
+            <img src={logo} className="h-7 sm:h-8" alt="Logo" />
+            <span className="text-xl sm:text-2xl font-semibold font-mono whitespace-nowrap">
               MedCamp Hub
             </span>
           </Link>
@@ -18,34 +22,30 @@ const Navbar = () => {
             {user && (
               <div className="flex items-center md:order-2 space-x-3 md:space-x-0 ">
                 <button
-                  type="button"
+                  onClick={() => setShowUserInfo(!showUserInfo)}
                   className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300"
-                  id="user-menu-button"
-                  aria-expanded="false"
-                  data-dropdown-toggle="user-dropdown"
-                  data-dropdown-placement="bottom"
                 >
-                  <span className="sr-only">Open user menu</span>
                   <img
                     className="w-8 h-8 rounded-full border-2 border-violet-800"
-                    src="/docs/images/people/profile-picture-3.jpg"
+                    src={user?.photoURL}
                     alt="user photo"
                   />
                 </button>
                 <div
-                  className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow"
-                  id="user-dropdown"
+                  className={`z-50 mt-3 text-base absolute top-14 right-8 list-none bg-white divide-y divide-gray-100 rounded-lg shadow ${
+                    showUserInfo ? "block" : "hidden"
+                  }`}
                 >
                   <div className="px-4 py-3">
                     <span className="block text-sm text-gray-900">
-                      Bonnie Green
+                      {user?.displayName}
                     </span>
                     <span className="block text-sm  text-gray-500 truncate">
-                      name@flowbite.com
+                      {user?.email}
                     </span>
                   </div>
-                  <ul className="py-2" aria-labelledby="user-menu-button">
-                    <li>
+                  <ul className="py-2">
+                    <li onClick={() => setShowUserInfo(false)}>
                       <Link
                         to="/profile"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"

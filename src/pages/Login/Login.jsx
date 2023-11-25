@@ -15,16 +15,6 @@ const Login = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    // createUser(data?.email, data?.password).then((userCredential) => {
-    //   updateUserProfile(data?.name, data?.photoURL)
-    //     .then(() => {
-    //       axiosPublic.post("/users", userInfo).then((res) => {
-    //         if (res.data?._id) {
-
-    //           navigate("/");
-    //         }
-    //       });
-    // })
     signIn(data?.email, data?.password)
       .then(() => {
         navigate("/");
@@ -39,7 +29,6 @@ const Login = () => {
       .catch((error) => {
         console.log(error);
       });
-    // });
   };
 
   return (
