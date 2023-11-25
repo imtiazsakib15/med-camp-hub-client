@@ -3,10 +3,34 @@ import logo from "/med-camp-logo.png";
 import SectionContainer from "../SectionContainer/SectionContainer";
 import useAuth from "../../../hooks/useAuth";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
-  const { user } = useAuth();
+  const { user, logOut } = useAuth();
   const [showUserInfo, setShowUserInfo] = useState(false);
+
+  const handleLogOut = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Log Out",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logOut().then(() => {
+          Swal.fire({
+            title: "Log Out Successfully!",
+            icon: "success",
+            showConfirmButton: false,
+            timer: 1000,
+          });
+        });
+      }
+    });
+    setShowUserInfo(false);
+  };
 
   return (
     <nav className="bg-white border-b border-gray-200">
@@ -54,12 +78,12 @@ const Navbar = () => {
                       </Link>
                     </li>
                     <li>
-                      <Link
-                        to="/"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 "
+                      <button
+                        onClick={handleLogOut}
+                        className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 "
                       >
                         Sign out
-                      </Link>
+                      </button>
                     </li>
                   </ul>
                 </div>
