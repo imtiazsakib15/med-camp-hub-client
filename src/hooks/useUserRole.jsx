@@ -13,8 +13,11 @@ const useUserRole = () => {
       return res.data;
     },
   });
-  console.log(data?.role);
-  return data;
+  const role = data?.role;
+  const organizer = role === "Organizer";
+  const healthcare_professional = role === "Healthcare Professional";
+  const participant = role === "Participant";
+  return { organizer, healthcare_professional, participant };
 };
 
 export default useUserRole;

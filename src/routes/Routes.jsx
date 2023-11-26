@@ -5,7 +5,7 @@ import Register from "../pages/Register/Register";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Login from "../pages/Login/Login";
 import Dashboard from "../layout/Dashboard/Dashboard";
-import AddACamp from "../pages/AddACamp/AddACamp";
+import AddACamp from "../pages/Dashboard/AddACamp/AddACamp";
 import MyDashboard from "../pages/Dashboard/MyDashboard/MyDashboard";
 import PrivateRoute from "./PrivateRoute";
 
@@ -37,11 +37,19 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <MyDashboard />,
+            element: (
+              <PrivateRoute>
+                <MyDashboard />
+              </PrivateRoute>
+            ),
           },
           {
             path: "add-a-camp",
-            element: <AddACamp />,
+            element: (
+              <PrivateRoute>
+                <AddACamp />
+              </PrivateRoute>
+            ),
           },
         ],
       },

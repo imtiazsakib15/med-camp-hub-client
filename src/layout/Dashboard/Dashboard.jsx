@@ -6,20 +6,18 @@ import { IoAddCircle } from "react-icons/io5";
 import useUserRole from "../../hooks/useUserRole";
 
 const Dashboard = () => {
-  const data = useUserRole();
-  console.log(data);
+  const { organizer, healthcare_professional, participant } = useUserRole();
+
   return (
     <>
       <SectionContainer>
-        <div className="p-6 grid grid-cols-4 gap-6 min-h-[calc(100vh-72px)]">
-          <div className="col-span-1 bg-violet-800 text-white rounded-md font-bold px-8 py-12 space-y-2">
+        <div className="p-6 md:grid md:grid-cols-4 md:gap-6 min-h-[calc(100vh-72px)]">
+          <div className="col-span-1 w-full bg-violet-800 text-white rounded-md font-bold px-3 lg:px-8 py-12 space-y-2">
             <>
               <div>
                 <NavLink
                   className={({ isActive }) =>
-                    isActive
-                      ? "w-full p-2 block rounded-md"
-                      : "p-2 block"
+                    isActive ? "w-full p-2 block rounded-md" : "p-2 block"
                   }
                   to="/dashboard"
                 >
@@ -44,24 +42,26 @@ const Dashboard = () => {
                   </span>
                 </NavLink>
               </div>
-              <div className="">
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive
-                      ? "bg-black w-full p-2 block rounded-md"
-                      : "p-2 block"
-                  }
-                  to="/dashboard/add-a-camp"
-                >
-                  <span className="flex items-center gap-3">
-                    <IoAddCircle />
-                    Add a Camp
-                  </span>
-                </NavLink>
-              </div>
+              {organizer && (
+                <div>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? "bg-black w-full p-2 block rounded-md"
+                        : "p-2 block"
+                    }
+                    to="/dashboard/add-a-camp"
+                  >
+                    <span className="flex items-center gap-3">
+                      <IoAddCircle />
+                      Add a Camp
+                    </span>
+                  </NavLink>
+                </div>
+              )}
             </>
           </div>
-          <div className="col-span-3">
+          <div className="md:col-span-3">
             <Outlet />
           </div>
         </div>
