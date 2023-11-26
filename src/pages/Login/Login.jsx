@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { MdErrorOutline } from "react-icons/md";
 import useAuth from "../../hooks/useAuth";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Login = () => {
@@ -12,12 +12,14 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const location = useLocation();
   const navigate = useNavigate();
+  const from = location.state?.from?.pathname;
 
   const onSubmit = (data) => {
     signIn(data?.email, data?.password)
       .then(() => {
-        navigate("/");
+        navigate(from ? from : "/", { replace: true });
         Swal.fire({
           title: "Good job!",
           text: `Log In Successfully!`,

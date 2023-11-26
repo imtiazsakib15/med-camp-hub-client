@@ -3,8 +3,11 @@ import SectionContainer from "../../pages/Shared/SectionContainer/SectionContain
 import { MdDashboard } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { IoAddCircle } from "react-icons/io5";
+import useUserRole from "../../hooks/useUserRole";
 
 const Dashboard = () => {
+  const data = useUserRole();
+  console.log(data);
   return (
     <>
       <SectionContainer>

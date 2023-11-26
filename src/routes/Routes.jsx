@@ -7,6 +7,7 @@ import Login from "../pages/Login/Login";
 import Dashboard from "../layout/Dashboard/Dashboard";
 import AddACamp from "../pages/AddACamp/AddACamp";
 import MyDashboard from "../pages/Dashboard/MyDashboard/MyDashboard";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <Dashboard />,
+        element: (
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        ),
         children: [
           {
             index: true,
