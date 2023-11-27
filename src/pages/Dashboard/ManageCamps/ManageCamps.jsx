@@ -6,10 +6,13 @@ import useAuth from "../../../hooks/useAuth";
 import { Helmet } from "react-helmet-async";
 import { MdDeleteOutline, MdEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
+import UpdateCamp from "../../Shared/UpdateCamp/UpdateCamp";
+import { useState } from "react";
 
 const ManageCamps = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
+  const [showmodal, setshowmodal] = useState(false);
 
   const { data: response } = useQuery({
     queryKey: ["myCamps", user?.email],
@@ -86,9 +89,19 @@ const ManageCamps = () => {
                 <td className="p-4">{camp.time}</td>
                 <td className="p-4">{camp.location}</td>
                 <td className="p-4">
-                  <button className="p-2 bg-violet-600 hover:bg-violet-800 text-white text-xl rounded">
+                  <button
+                    onClick={() => setshowmodal(true)}
+                    className="p-2 bg-violet-600 hover:bg-violet-800 text-white text-xl rounded"
+                  >
                     <MdEdit />
                   </button>
+                  <div className={`${showmodal ? "block" : "hidden"}`}>
+                    <UpdateCamp
+                      camp={camp}
+                      showmodal={showmodal}
+                      setshowmodal={setshowmodal}
+                    />
+                  </div>
                 </td>
                 <td className="p-4">
                   <button className="bg-red-600 hover:bg-red-800 text-white text-xl p-2 rounded">
