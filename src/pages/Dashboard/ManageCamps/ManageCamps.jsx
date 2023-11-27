@@ -8,18 +8,33 @@ import { MdDeleteOutline, MdEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
 import UpdateCamp from "../../Shared/UpdateCamp/UpdateCamp";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const ManageCamps = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
   const [showmodal, setshowmodal] = useState(false);
 
-  const { data: response } = useQuery({
+  const { data: response, refetch } = useQuery({
     queryKey: ["myCamps", user?.email],
     queryFn: async () =>
       await axiosSecure.get(`/camps?organizer_email=${user?.email}`),
   });
   const allCamps = response?.data || [];
+
+  const handleDelete = async (id) => {
+    const response = await axiosSecure.delete(`/camps/${id}`);
+    if (response?.data?._id) {
+      refetch();
+      Swal.fire({
+        title: "Camp Deleted Successfully!",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    }
+  };
+
   //   const data = useMemo(() => response?.data || [], [response]);
   //   const columns = useMemo(
   //     () => [
@@ -104,7 +119,10 @@ const ManageCamps = () => {
                   </div>
                 </td>
                 <td className="p-4">
-                  <button className="bg-red-600 hover:bg-red-800 text-white text-xl p-2 rounded">
+                  <button
+                    onClick={() => handleDelete(camp._id)}
+                    className="bg-red-600 hover:bg-red-800 text-white text-xl p-2 rounded"
+                  >
                     <MdDeleteOutline />
                   </button>
                 </td>

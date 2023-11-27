@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import { MdErrorOutline } from "react-icons/md";
 import PropTypes from "prop-types";
 
-const UpdateCamp = ({ camp, showmodal, setshowmodal }) => {
+const UpdateCamp = ({ camp, setshowmodal }) => {
   const axiosSecure = useAxiosSecure();
   const {
     register,
@@ -24,7 +24,7 @@ const UpdateCamp = ({ camp, showmodal, setshowmodal }) => {
     description,
     target_audience,
   } = camp;
-console.log(_id);
+// console.log(_id);
   const onSubmit = (data) => {
     const modifiedCampInfo = data;
     axiosSecure.put(`/camps/${_id}`, modifiedCampInfo).then((res) => {
