@@ -10,6 +10,7 @@ import MyDashboard from "../pages/Dashboard/MyDashboard/MyDashboard";
 import PrivateRoute from "./PrivateRoute";
 import ManageCamps from "../pages/Dashboard/ManageCamps/ManageCamps";
 import AvailableCamps from "../pages/AvailableCamps/AvailableCamps";
+import CampDetails from "../pages/CampDetails/CampDetails";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,14 @@ const router = createBrowserRouter([
       {
         path: "/available-camps",
         element: <AvailableCamps />,
+      },
+      {
+        path: "/camp-details/:id",
+        element: (
+          <PrivateRoute>
+            <CampDetails />
+          </PrivateRoute>
+        ),
       },
     ],
   },
