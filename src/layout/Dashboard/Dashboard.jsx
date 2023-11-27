@@ -17,9 +17,12 @@ const Dashboard = () => {
               <div>
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "w-full p-2 block rounded-md" : "p-2 block"
+                    isActive
+                      ? "bg-black w-full p-2 block rounded-md"
+                      : "p-2 block"
                   }
                   to="/dashboard"
+                  end
                 >
                   <span className="flex items-center gap-3">
                     <MdDashboard />
@@ -35,6 +38,7 @@ const Dashboard = () => {
                       : "p-2 block"
                   }
                   to="/dashboard/profile"
+                  end
                 >
                   <span className="flex items-center gap-3">
                     <CgProfile />
@@ -67,10 +71,11 @@ const Dashboard = () => {
                           : "p-2 block"
                       }
                       to="/dashboard/manage-camps"
+                      end
                     >
                       <span className="flex items-center gap-3">
                         <MdManageHistory />
-                       Manage Camps
+                        Manage Camps
                       </span>
                     </NavLink>
                   </div>

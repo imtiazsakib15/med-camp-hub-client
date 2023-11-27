@@ -14,7 +14,10 @@ const CampCard = ({ camp }) => {
   } = camp;
 
   return (
-    <div className="p-4 border rounded flex flex-col justify-between space-y-1.5">
+    <div
+      data-aos="flip-left"
+      className="p-4 border rounded flex flex-col justify-between space-y-1.5"
+    >
       <img
         className="rounded w-full aspect-video object-cover"
         src={image}

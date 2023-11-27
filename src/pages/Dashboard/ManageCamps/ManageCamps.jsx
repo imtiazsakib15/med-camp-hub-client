@@ -4,18 +4,15 @@ import useAuth from "../../../hooks/useAuth";
 // import { useTable } from "react-table";
 // import { useMemo } from "react";
 import { Helmet } from "react-helmet-async";
-import { MdDelete, MdDeleteOutline, MdEdit, MdUpdate } from "react-icons/md";
+import { MdDeleteOutline, MdEdit } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const ManageCamps = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
 
-  const {
-    isLoading,
-    error,
-    data: response,
-  } = useQuery({
-    queryKey: ["myCamps"],
+  const { data: response } = useQuery({
+    queryKey: ["myCamps", user?.email],
     queryFn: async () =>
       await axiosSecure.get(`/camps?organizer_email=${user?.email}`),
   });
@@ -82,17 +79,19 @@ const ManageCamps = () => {
             {allCamps?.map((camp, index) => (
               <tr key={camp._id}>
                 <td className="font-semibold p-4">{index + 1}</td>
-                <td className="p-4 font-semibold">{camp.camp_name}</td>
+                <td className="p-4 font-semibold hover:underline">
+                  <Link to={`/camp-details/${camp._id}`}>{camp.camp_name}</Link>
+                </td>
                 <td className="p-4">{camp.starting_date}</td>
                 <td className="p-4">{camp.time}</td>
                 <td className="p-4">{camp.location}</td>
                 <td className="p-4">
-                  <button className="p-2 bg-violet-600 text-white rounded">
+                  <button className="p-2 bg-violet-600 hover:bg-violet-800 text-white text-xl rounded">
                     <MdEdit />
                   </button>
                 </td>
                 <td className="p-4">
-                  <button className="bg-red-600 text-white p-2 rounded">
+                  <button className="bg-red-600 hover:bg-red-800 text-white text-xl p-2 rounded">
                     <MdDeleteOutline />
                   </button>
                 </td>
