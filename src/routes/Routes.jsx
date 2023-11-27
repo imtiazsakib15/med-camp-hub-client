@@ -8,6 +8,8 @@ import Dashboard from "../layout/Dashboard/Dashboard";
 import AddACamp from "../pages/Dashboard/AddACamp/AddACamp";
 import MyDashboard from "../pages/Dashboard/MyDashboard/MyDashboard";
 import PrivateRoute from "./PrivateRoute";
+import ManageCamps from "../pages/Dashboard/ManageCamps/ManageCamps";
+import AvailableCamps from "../pages/AvailableCamps/AvailableCamps";
 
 const router = createBrowserRouter([
   {
@@ -28,30 +30,42 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "/dashboard",
+        path: "/available-camps",
+        element: <AvailableCamps />,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        index: true,
         element: (
           <PrivateRoute>
-            <Dashboard />
+            <MyDashboard />
           </PrivateRoute>
         ),
-        children: [
-          {
-            index: true,
-            element: (
-              <PrivateRoute>
-                <MyDashboard />
-              </PrivateRoute>
-            ),
-          },
-          {
-            path: "add-a-camp",
-            element: (
-              <PrivateRoute>
-                <AddACamp />
-              </PrivateRoute>
-            ),
-          },
-        ],
+      },
+      {
+        path: "add-a-camp",
+        element: (
+          <PrivateRoute>
+            <AddACamp />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "manage-camps",
+        element: (
+          <PrivateRoute>
+            <ManageCamps />
+          </PrivateRoute>
+        ),
       },
     ],
   },

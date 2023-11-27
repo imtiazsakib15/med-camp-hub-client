@@ -39,7 +39,7 @@ const AddACamp = () => {
         Add a Camp
       </h1>
 
-      <form onSubmit={handleSubmit(onSubmit)} noValidate>
+      <form className="pb-10" onSubmit={handleSubmit(onSubmit)} noValidate>
         <div className="grid gap-6 mb-6 md:grid-cols-2">
           <div>
             <label
