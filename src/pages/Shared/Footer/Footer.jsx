@@ -5,7 +5,7 @@ import SectionContainer from "../SectionContainer/SectionContainer";
 
 const Footer = () => {
   return (
-    <footer className="bg-violet-950 bg-opacity-75 pt-10 sm:pt-14 lg:pt-20 border-t">
+    <footer className="bg-violet-950 pt-10 sm:pt-14 lg:pt-20 border-t">
       <SectionContainer>
         <div className="grid grid-cols-2 md:grid-cols-4 pb-5 sm:pb-8 gap-10">
           <div className="col-span-2">

@@ -24,7 +24,7 @@ const UpdateCamp = ({ camp, setshowmodal }) => {
     description,
     target_audience,
   } = camp;
-// console.log(_id);
+  // console.log(_id);
   const onSubmit = (data) => {
     const modifiedCampInfo = data;
     axiosSecure.put(`/camps/${_id}`, modifiedCampInfo).then((res) => {
@@ -41,9 +41,7 @@ const UpdateCamp = ({ camp, setshowmodal }) => {
   };
 
   return (
-    <div
-      className={`overflow-y-auto overflow-x-hidden fixed z-50 flex justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full`}
-    >
+    <div className="overflow-y-auto overflow-x-hidden fixed z-50 flex justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
       <div className="relative p-4 w-full max-w-2xl max-h-full">
         <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
           <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
