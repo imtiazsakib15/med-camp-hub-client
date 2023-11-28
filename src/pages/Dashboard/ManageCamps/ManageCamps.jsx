@@ -14,6 +14,7 @@ const ManageCamps = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
   const [showmodal, setshowmodal] = useState(false);
+  const [updateCamp, setUpdateCamp] = useState(null);
 
   const { data: response, refetch } = useQuery({
     queryKey: ["myCamps", user?.email],
@@ -105,18 +106,24 @@ const ManageCamps = () => {
                 <td className="p-4">{camp.location}</td>
                 <td className="p-4">
                   <button
-                    onClick={() => setshowmodal(true)}
+                    onClick={() => {
+                      setUpdateCamp(camp);
+                      setshowmodal(true);
+                    }}
                     className="p-2 bg-violet-600 hover:bg-violet-800 text-white text-xl rounded"
                   >
                     <MdEdit />
                   </button>
-                  <div className={`${showmodal ? "block" : "hidden"}`}>
-                    <UpdateCamp
-                      camp={camp}
-                      showmodal={showmodal}
-                      setshowmodal={setshowmodal}
-                    />
-                  </div>
+                  {updateCamp && (
+                    <div className={`${showmodal ? "block" : "hidden"}`}>
+                      <UpdateCamp
+                        camp={updateCamp}
+                        setUpdateCamp={setUpdateCamp}
+                        setshowmodal={setshowmodal}
+                        refetch={refetch}
+                      />
+                    </div>
+                  )}
                 </td>
                 <td className="p-4">
                   <button

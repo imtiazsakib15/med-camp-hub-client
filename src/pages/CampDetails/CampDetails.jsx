@@ -9,7 +9,7 @@ const CampDetails = () => {
   const { id } = useParams();
   const axiosSecure = useAxiosSecure();
 
-  const { isLoading, data } = useQuery({
+  const { data } = useQuery({
     queryKey: ["allCamps"],
     queryFn: async () => await axiosSecure.get(`/camps/${id}`),
   });

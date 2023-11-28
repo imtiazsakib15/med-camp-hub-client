@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import { MdErrorOutline } from "react-icons/md";
 import PropTypes from "prop-types";
 
-const UpdateCamp = ({ camp, setshowmodal }) => {
+const UpdateCamp = ({ camp, setUpdateCamp, setshowmodal, refetch }) => {
   const axiosSecure = useAxiosSecure();
   const {
     register,
@@ -24,7 +24,7 @@ const UpdateCamp = ({ camp, setshowmodal }) => {
     description,
     target_audience,
   } = camp;
-  // console.log(_id);
+
   const onSubmit = (data) => {
     const modifiedCampInfo = data;
     axiosSecure.put(`/camps/${_id}`, modifiedCampInfo).then((res) => {
@@ -36,6 +36,8 @@ const UpdateCamp = ({ camp, setshowmodal }) => {
           timer: 1000,
         });
       }
+      refetch();
+      setUpdateCamp(null);
       setshowmodal(false);
     });
   };
@@ -49,7 +51,10 @@ const UpdateCamp = ({ camp, setshowmodal }) => {
               Update Camp
             </h3>
             <button
-              onClick={() => setshowmodal(false)}
+              onClick={() => {
+                setUpdateCamp(null);
+                setshowmodal(false);
+              }}
               className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
             >
               <svg
@@ -340,6 +345,8 @@ UpdateCamp.propTypes = {
   camp: PropTypes.object,
   showmodal: PropTypes.bool,
   setshowmodal: PropTypes.func,
+  setUpdateCamp: PropTypes.func,
+  refetch: PropTypes.func,
 };
 
 export default UpdateCamp;
