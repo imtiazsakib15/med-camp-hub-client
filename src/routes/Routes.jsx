@@ -4,7 +4,7 @@ import Home from "../pages/Home/Home/Home";
 import Register from "../pages/Register/Register";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Login from "../pages/Login/Login";
-import Dashboard from "../layout/Dashboard/Dashboard";
+import Dashboard from "../layout/Dashboard";
 import AddACamp from "../pages/Dashboard/AddACamp/AddACamp";
 import MyDashboard from "../pages/Dashboard/MyDashboard/MyDashboard";
 import PrivateRoute from "./PrivateRoute";
@@ -77,6 +77,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <ManageCamps />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "add-upcoming-camp",
+        element: (
+          <PrivateRoute>
+            <AddACamp />
           </PrivateRoute>
         ),
       },

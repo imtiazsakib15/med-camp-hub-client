@@ -4,6 +4,7 @@ import { MdErrorOutline } from "react-icons/md";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
+import { useLocation } from "react-router-dom";
 
 const AddACamp = () => {
   const { user } = useAuth();
@@ -14,8 +15,10 @@ const AddACamp = () => {
     reset,
     formState: { errors },
   } = useForm();
+  const location = useLocation();
+  const addACamp = location.pathname === "/dashboard/add-a-camp";
 
-  const onSubmit = (data) => {
+  const onSubmitCamp = (data) => {
     const campInfo = { ...data, organizer_email: user?.email };
     axiosSecure.post("/camps", campInfo).then((res) => {
       if (res.data?._id) {
@@ -30,13 +33,31 @@ const AddACamp = () => {
     });
   };
 
+  const onSubmitUpcomingCamp = (data) => {
+    const campInfo = { ...data, organizer_email: user?.email };
+    axiosSecure.post("/upcoming-camps", campInfo).then((res) => {
+      if (res.data?._id) {
+        Swal.fire({
+          title: "Upcoming Camp Added Successfully!",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1000,
+        });
+        reset();
+      }
+    });
+  };
+  const onSubmit = addACamp ? onSubmitCamp : onSubmitUpcomingCamp;
+
   return (
     <>
       <Helmet>
-        <title>Add a Camp | MedCamp Hub</title>
+        <title>
+          {addACamp ? "Add a Camp" : "Add Upcoming Camp"} | MedCamp Hub
+        </title>
       </Helmet>
       <h1 className="text-xl sm:text-2xl lg:text-4xl font-bold text-center mb-4 sm:mb-6 mt-10 md:mt-0">
-        Add a Camp
+        {addACamp ? "Add a Camp" : "Add Upcoming Camp"}
       </h1>
 
       <form className="pb-10" onSubmit={handleSubmit(onSubmit)} noValidate>
@@ -282,7 +303,7 @@ const AddACamp = () => {
           type="submit"
           className="text-white bg-violet-600 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-violet-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
         >
-          Add Camp
+          {addACamp ? "Add Camp" : "Add Upcoming Camp"}
         </button>
       </form>
     </>

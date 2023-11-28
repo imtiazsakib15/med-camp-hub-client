@@ -1,9 +1,9 @@
 import { NavLink, Outlet } from "react-router-dom";
-import SectionContainer from "../../pages/Shared/SectionContainer/SectionContainer";
+import SectionContainer from "../pages/Shared/SectionContainer/SectionContainer";
 import { MdDashboard, MdHome, MdList, MdManageHistory } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { IoAddCircle } from "react-icons/io5";
-import useUserRole from "../../hooks/useUserRole";
+import useUserRole from "../hooks/useUserRole";
 
 const Dashboard = () => {
   const { organizer, healthcare_professional, participant } = useUserRole();
@@ -76,6 +76,21 @@ const Dashboard = () => {
                       <span className="flex items-center gap-3">
                         <MdManageHistory />
                         Manage Camps
+                      </span>
+                    </NavLink>
+                  </div>
+                  <div>
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive
+                          ? "bg-black w-full p-2 block rounded-md"
+                          : "p-2 block"
+                      }
+                      to="/dashboard/add-upcoming-camp"
+                    >
+                      <span className="flex items-center gap-3">
+                        <IoAddCircle />
+                        Add Upcoming Camp
                       </span>
                     </NavLink>
                   </div>

@@ -19,7 +19,7 @@ const Login = () => {
   const onSubmit = (data) => {
     signIn(data?.email, data?.password)
       .then(() => {
-        navigate(from ? from : "/", { replace: true });
+        navigate(from ? from : "/dashboard", { replace: true });
         Swal.fire({
           title: "Good job!",
           text: `Log In Successfully!`,
