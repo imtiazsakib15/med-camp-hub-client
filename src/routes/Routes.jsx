@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoute";
 import ManageCamps from "../pages/Dashboard/ManageCamps/ManageCamps";
 import AvailableCamps from "../pages/AvailableCamps/AvailableCamps";
 import CampDetails from "../pages/CampDetails/CampDetails";
+import ManageUpcomingCamps from "../pages/Dashboard/ManageUpcomingCamps/ManageUpcomingCamps";
 
 const router = createBrowserRouter([
   {
@@ -85,6 +86,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddACamp />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "manage-upcoming-camps",
+        element: (
+          <PrivateRoute>
+            <ManageUpcomingCamps />
           </PrivateRoute>
         ),
       },

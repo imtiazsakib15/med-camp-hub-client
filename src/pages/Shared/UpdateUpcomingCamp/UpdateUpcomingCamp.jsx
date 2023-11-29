@@ -27,10 +27,10 @@ const UpdateCamp = ({ camp, setUpdateCamp, setshowmodal, refetch }) => {
 
   const onSubmit = (data) => {
     const modifiedCampInfo = data;
-    axiosSecure.put(`/camps/${_id}`, modifiedCampInfo).then((res) => {
+    axiosSecure.put(`/upcoming-camps/${_id}`, modifiedCampInfo).then((res) => {
       if (res.data?.modifiedCount) {
         Swal.fire({
-          title: "Camp Updated Successfully!",
+          title: "Upcoming Camp Updated Successfully!",
           icon: "success",
           showConfirmButton: false,
           timer: 1000,
@@ -48,7 +48,7 @@ const UpdateCamp = ({ camp, setUpdateCamp, setshowmodal, refetch }) => {
         <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
           <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-              Update Camp
+              Update Upcoming Camp
             </h3>
             <button
               onClick={() => {

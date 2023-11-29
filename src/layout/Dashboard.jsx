@@ -94,6 +94,22 @@ const Dashboard = () => {
                       </span>
                     </NavLink>
                   </div>
+                  <div>
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive
+                          ? "bg-black w-full p-2 block rounded-md"
+                          : "p-2 block"
+                      }
+                      to="/dashboard/manage-upcoming-camps"
+                      end
+                    >
+                      <span className="flex items-center gap-3">
+                        <MdManageHistory />
+                        Manage Upcoming Camps
+                      </span>
+                    </NavLink>
+                  </div>
                 </>
               )}
               <hr />
