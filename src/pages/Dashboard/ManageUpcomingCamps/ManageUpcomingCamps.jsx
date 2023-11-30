@@ -21,17 +21,32 @@ const ManageCamps = () => {
   });
   const allCamps = response?.data || [];
 
-  const handleDelete = async (id) => {
-    const response = await axiosSecure.delete(`/upcoming-camps/${id}`);
-    if (response?.data?._id) {
-      refetch();
-      Swal.fire({
-        title: "Upcoming Camp Deleted Successfully!",
-        icon: "success",
-        showConfirmButton: false,
-        timer: 1000,
-      });
-    }
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Delete",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure
+          .delete(`/upcoming-camps/${id}`)
+          .then((response) => {
+            if (response?.data?._id) {
+              refetch();
+              Swal.fire({
+                title: "Camp Deleted Successfully!",
+                icon: "success",
+                showConfirmButton: false,
+                timer: 1000,
+              });
+            }
+          })
+          .catch(() => {});
+      }
+    });
   };
 
   return (

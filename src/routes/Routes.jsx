@@ -12,6 +12,7 @@ import ManageCamps from "../pages/Dashboard/ManageCamps/ManageCamps";
 import AvailableCamps from "../pages/AvailableCamps/AvailableCamps";
 import CampDetails from "../pages/CampDetails/CampDetails";
 import ManageUpcomingCamps from "../pages/Dashboard/ManageUpcomingCamps/ManageUpcomingCamps";
+import Profile from "../pages/Dashboard/Profile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -94,6 +95,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <ManageUpcomingCamps />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "organizer-profile",
+        element: (
+          <PrivateRoute>
+            <Profile />
           </PrivateRoute>
         ),
       },

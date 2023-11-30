@@ -24,6 +24,7 @@ const Register = () => {
             email: userCredential.user.email,
             name: userCredential.user.displayName,
             role: data?.role,
+            photoURL: data?.photoURL,
           };
           axiosPublic.post("/users", userInfo).then((res) => {
             if (res.data?._id) {
@@ -41,6 +42,8 @@ const Register = () => {
         .catch((error) => {
           console.log(error);
         });
+      userCredential.user.displayName = data?.name;
+      userCredential.user.photoURL = data?.photoURL;
     });
   };
 

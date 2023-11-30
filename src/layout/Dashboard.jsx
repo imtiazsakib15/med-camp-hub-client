@@ -30,24 +30,24 @@ const Dashboard = () => {
                   </span>
                 </NavLink>
               </div>
-              <div>
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive
-                      ? "bg-black w-full p-2 block rounded-md"
-                      : "p-2 block"
-                  }
-                  to="/dashboard/profile"
-                  end
-                >
-                  <span className="flex items-center gap-3">
-                    <CgProfile />
-                    Profile
-                  </span>
-                </NavLink>
-              </div>
               {organizer && (
                 <>
+                  <div>
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive
+                          ? "bg-black w-full p-2 block rounded-md"
+                          : "p-2 block"
+                      }
+                      to="/dashboard/organizer-profile"
+                      end
+                    >
+                      <span className="flex items-center gap-3">
+                        <CgProfile />
+                        Organizer Profile
+                      </span>
+                    </NavLink>
+                  </div>
                   <div>
                     <NavLink
                       className={({ isActive }) =>
