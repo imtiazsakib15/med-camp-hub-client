@@ -1,8 +1,15 @@
-# React + Vite
+## The name of the website is '[MedCamp Hub](https://med-camp-hub.web.app)'
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live link of this website - https://med-camp-hub.web.app
 
-Currently, two official plugins are available:
+## Features of this website
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- A user can see 6 popular camps in the home page. By clicking the 'View More' button he/she can see the details of that camp.
+
+- A organizer can create and manage medical camp.
+
+- A participant can join any camp by registering with necessary information.
+
+- Every organizer, participant, and healthcare professional can see and modify their profile.
+
+- Any participant can join any medical camp.

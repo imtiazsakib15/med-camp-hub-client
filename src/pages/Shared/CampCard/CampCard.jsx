@@ -16,7 +16,7 @@ const CampCard = ({ camp }) => {
   return (
     <div
       data-aos="flip-left"
-      className="p-4 border rounded flex flex-col justify-between space-y-1.5"
+      className="p-4 text-sm sm:text-base border rounded flex flex-col justify-between space-y-1.5"
     >
       <img
         className="rounded w-full aspect-video object-cover"
@@ -24,7 +24,7 @@ const CampCard = ({ camp }) => {
         alt="camp image"
       />
 
-      <h3 className="font-bold text-lg pt-3">{camp_name}</h3>
+      <h3 className="font-bold sm:text-lg pt-3">{camp_name}</h3>
       <p>
         Starting Date: {starting_date} ({time})
       </p>
@@ -35,7 +35,7 @@ const CampCard = ({ camp }) => {
         to={`/camp-details/${_id}`}
         className="bg-violet-600 hover:bg-violet-800 text-white font-bold px-5 py-2 w-max"
       >
-        Learn More
+        View More
       </Link>
     </div>
   );

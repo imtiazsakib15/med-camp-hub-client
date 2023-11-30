@@ -3,6 +3,7 @@ import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import SectionContainer from "../../Shared/SectionContainer/SectionContainer";
 import Skeleton from "react-loading-skeleton";
 import CampCard from "../../Shared/CampCard/CampCard";
+import { Link } from "react-router-dom";
 
 const PopularCamps = () => {
   const axiosPublic = useAxiosPublic();
@@ -18,7 +19,7 @@ const PopularCamps = () => {
         Popular Items
       </h1>
       <SectionContainer>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 pb-8 md:pb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 pb-6 md:pb-8">
           {isLoading && (
             <div>
               <Skeleton className="aspect-video mb-5" />
@@ -27,6 +28,14 @@ const PopularCamps = () => {
           )}
           {camps?.length > 0 &&
             camps.map((camp) => <CampCard camp={camp} key={camp._id} />)}
+        </div>
+        <div className="text-center pb-4">
+          <Link
+            to="/available-camps"
+            className="py-3 px-6 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-violet-600 text-white hover:bg-violet-800 disabled:opacity-50 disabled:pointer-events-none"
+          >
+            Available Camps
+          </Link>
         </div>
       </SectionContainer>
     </>
