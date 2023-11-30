@@ -4,10 +4,15 @@ import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
 import SectionContainer from "../Shared/SectionContainer/SectionContainer";
 import Skeleton from "react-loading-skeleton";
+import { useState } from "react";
+import RegisterCampModal from "../Dashboard/RegisterCampModal/RegisterCampModal";
+import useUserRole from "../../hooks/useUserRole";
 
 const CampDetails = () => {
   const { id } = useParams();
   const axiosSecure = useAxiosSecure();
+  const [showmodal, setshowmodal] = useState(false);
+  const { participant } = useUserRole();
 
   const { data } = useQuery({
     queryKey: ["allCamps"],
@@ -15,7 +20,6 @@ const CampDetails = () => {
   });
   const camp = data?.data || {};
   const {
-    _id,
     camp_name,
     image,
     fees,
@@ -57,9 +61,18 @@ const CampDetails = () => {
               <p>Time: {time} (24 hour format)</p>
               <p className="font-medium">Registration Fee: ${fees}</p>
               <p className="text-gray-800 pb-6">{description}</p>
-              <button className="bg-violet-600 hover:bg-violet-800 text-white md:text-lg font-medium rounded-lg px-8 py-2.5">
+              <button
+                onClick={() => setshowmodal(true)}
+                disabled={!participant}
+                className="bg-violet-600 hover:bg-violet-800 text-white md:text-lg font-medium rounded-lg px-8 py-2.5 disabled:bg-gray-400"
+              >
                 Join Camp
               </button>
+              {showmodal && (
+                <div className={`${showmodal ? "block" : "hidden"}`}>
+                  <RegisterCampModal camp={camp} setshowmodal={setshowmodal} />
+                </div>
+              )}
             </>
           ) : (
             <Skeleton className="mt-4" count={10} />

@@ -69,7 +69,8 @@ const ManageCamps = () => {
               </th>
               <th className="p-4">Location</th>
               <th className="p-4">Update</th>
-              <th className="rounded-tr-lg p-4">Delete</th>
+              <th className="p-4">Delete</th>
+              <th className="rounded-tr-lg p-4">Action</th>
             </tr>
           </thead>
           <tbody className="bg-slate-100">
@@ -109,6 +110,11 @@ const ManageCamps = () => {
                     className="bg-red-600 hover:bg-red-800 text-white text-xl p-2 rounded"
                   >
                     <MdDeleteOutline />
+                  </button>
+                </td>
+                <td className="p-4">
+                  <button className="bg-green-500 hover:bg-green-800 text-white text-xl px-4 py-2 rounded">
+                    Publish
                   </button>
                 </td>
               </tr>
