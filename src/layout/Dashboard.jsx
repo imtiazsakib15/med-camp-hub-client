@@ -112,6 +112,26 @@ const Dashboard = () => {
                   </div>
                 </>
               )}
+              {participant && (
+                <>
+                  <div>
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive
+                          ? "bg-black w-full p-2 block rounded-md"
+                          : "p-2 block"
+                      }
+                      to="/dashboard/participant-profile"
+                      end
+                    >
+                      <span className="flex items-center gap-3">
+                        <CgProfile />
+                        Participant Profile
+                      </span>
+                    </NavLink>
+                  </div>
+                </>
+              )}
               <hr />
 
               <div>

@@ -1,21 +1,15 @@
 import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
 import { MdErrorOutline } from "react-icons/md";
 import PropTypes from "prop-types";
-import useAuth from "../../../hooks/useAuth";
 import useUser from "../../../hooks/useUser";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 const UpdateProfile = ({onSubmit, setshowmodal }) => {
-  const { updateUserProfile } = useAuth();
-  const { user, userRefetch } = useUser();
-  const axiosPublic = useAxiosPublic();
+  const { user } = useUser();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
 
   return (
     <div className="overflow-y-auto overflow-x-hidden fixed z-50 flex justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
