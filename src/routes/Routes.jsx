@@ -13,6 +13,8 @@ import AvailableCamps from "../pages/AvailableCamps/AvailableCamps";
 import CampDetails from "../pages/CampDetails/CampDetails";
 import ManageUpcomingCamps from "../pages/Dashboard/ManageUpcomingCamps/ManageUpcomingCamps";
 import Profile from "../pages/Dashboard/Profile/Profile";
+import UnauthorizedPage from "../pages/UnauthorizedPage/UnauthorizedPage";
+import OrganizerRoute from "./OrganizerRoute";
 
 const router = createBrowserRouter([
   {
@@ -69,41 +71,41 @@ const router = createBrowserRouter([
       {
         path: "add-a-camp",
         element: (
-          <PrivateRoute>
+          <OrganizerRoute>
             <AddACamp />
-          </PrivateRoute>
+          </OrganizerRoute>
         ),
       },
       {
         path: "manage-camps",
         element: (
-          <PrivateRoute>
+          <OrganizerRoute>
             <ManageCamps />
-          </PrivateRoute>
+          </OrganizerRoute>
         ),
       },
       {
         path: "add-upcoming-camp",
         element: (
-          <PrivateRoute>
+          <OrganizerRoute>
             <AddACamp />
-          </PrivateRoute>
+          </OrganizerRoute>
         ),
       },
       {
         path: "manage-upcoming-camps",
         element: (
-          <PrivateRoute>
+          <OrganizerRoute>
             <ManageUpcomingCamps />
-          </PrivateRoute>
+          </OrganizerRoute>
         ),
       },
       {
         path: "organizer-profile",
         element: (
-          <PrivateRoute>
+          <OrganizerRoute>
             <Profile />
-          </PrivateRoute>
+          </OrganizerRoute>
         ),
       },
       {
@@ -114,7 +116,19 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: "professional-profile",
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
+      },
     ],
+  },
+  {
+    path: "/error",
+    element: <UnauthorizedPage />,
   },
 ]);
 

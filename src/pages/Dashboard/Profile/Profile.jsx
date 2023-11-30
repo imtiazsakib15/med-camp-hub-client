@@ -46,19 +46,19 @@ const Profile = () => {
           {organizer
             ? "Organizer"
             : healthcare_professional
-            ? "Health Care Professional"
+            ? "Healthcare Professional"
             : participant
             ? "Participant"
             : ""}{" "}
           Profile | MedCamp Hub
         </title>
       </Helmet>
-      <h1 className="text-xl sm:text-2xl lg:text-4xl font-bold text-center mb-4 sm:mb-6 mt-10 md:mt-0 underline">
+      <h1 className="text-xl sm:text-2xl lg:text-4xl font-bold text-center mb-4 sm:mb-6 mt-10 md:mt-0 px-3 md:px-8 underline">
         Welcome, our valuable{" "}
         {organizer
           ? "Organizer"
           : healthcare_professional
-          ? "Health Care Professional"
+          ? "Healthcare Professional"
           : participant
           ? "Participant"
           : ""}

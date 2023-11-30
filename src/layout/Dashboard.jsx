@@ -132,6 +132,26 @@ const Dashboard = () => {
                   </div>
                 </>
               )}
+              {healthcare_professional && (
+                <>
+                  <div>
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive
+                          ? "bg-black w-full p-2 block rounded-md"
+                          : "p-2 block"
+                      }
+                      to="/dashboard/professional-profile"
+                      end
+                    >
+                      <span className="flex items-center gap-3">
+                        <CgProfile />
+                        Professional Profile
+                      </span>
+                    </NavLink>
+                  </div>
+                </>
+              )}
               <hr />
 
               <div>
