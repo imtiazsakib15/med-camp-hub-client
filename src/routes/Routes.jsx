@@ -15,6 +15,7 @@ import ManageUpcomingCamps from "../pages/Dashboard/ManageUpcomingCamps/ManageUp
 import Profile from "../pages/Dashboard/Profile/Profile";
 import UnauthorizedPage from "../pages/UnauthorizedPage/UnauthorizedPage";
 import OrganizerRoute from "./OrganizerRoute";
+import ParticipantRoute from "./ParticipantRoute";
 
 const router = createBrowserRouter([
   {
@@ -111,9 +112,9 @@ const router = createBrowserRouter([
       {
         path: "participant-profile",
         element: (
-          <PrivateRoute>
+          <ParticipantRoute>
             <Profile />
-          </PrivateRoute>
+          </ParticipantRoute>
         ),
       },
       {
