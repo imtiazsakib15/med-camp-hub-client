@@ -16,6 +16,7 @@ import Profile from "../pages/Dashboard/Profile/Profile";
 import UnauthorizedPage from "../pages/UnauthorizedPage/UnauthorizedPage";
 import OrganizerRoute from "./OrganizerRoute";
 import ParticipantRoute from "./ParticipantRoute";
+import ProfessionalRoute from "./ProfessionalRoute";
 
 const router = createBrowserRouter([
   {
@@ -120,9 +121,9 @@ const router = createBrowserRouter([
       {
         path: "professional-profile",
         element: (
-          <PrivateRoute>
+          <ProfessionalRoute>
             <Profile />
-          </PrivateRoute>
+          </ProfessionalRoute>
         ),
       },
     ],
