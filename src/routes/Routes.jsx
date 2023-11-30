@@ -17,6 +17,7 @@ import UnauthorizedPage from "../pages/UnauthorizedPage/UnauthorizedPage";
 import OrganizerRoute from "./OrganizerRoute";
 import ParticipantRoute from "./ParticipantRoute";
 import ProfessionalRoute from "./ProfessionalRoute";
+import ContactUs from "../pages/ContactUs/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/contact-us",
+        element: <ContactUs />,
       },
       {
         path: "/register",

@@ -4,10 +4,12 @@ import SectionContainer from "../SectionContainer/SectionContainer";
 import useAuth from "../../../hooks/useAuth";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import useUserRole from "../../../hooks/useUserRole";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const [showUserInfo, setShowUserInfo] = useState(false);
+  const { organizer, healthcare_professional, participant } = useUserRole();
 
   const handleLogOut = () => {
     Swal.fire({
@@ -70,12 +72,30 @@ const Navbar = () => {
                   </div>
                   <ul className="py-2">
                     <li onClick={() => setShowUserInfo(false)}>
-                      <Link
-                        to="/dashboard/profile"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      >
-                        Profile
-                      </Link>
+                      {organizer && (
+                        <Link
+                          to="/dashboard/organizer-profile"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          Organizer Profile
+                        </Link>
+                      )}
+                      {healthcare_professional && (
+                        <Link
+                          to="/dashboard/professional-profile"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          Professional Profile
+                        </Link>
+                      )}
+                      {participant && (
+                        <Link
+                          to="/dashboard/participant-profile"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          Participant Profile
+                        </Link>
+                      )}
                     </li>
                     <li>
                       <button
