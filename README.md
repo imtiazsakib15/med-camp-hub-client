@@ -13,3 +13,21 @@ Live link of this website - https://med-camp-hub.web.app
 - Every organizer, participant, and healthcare professional can see and modify their profile.
 
 - Any participant can join any medical camp.
+
+## Technologies Used In This Website
+
+- React
+
+- JavaScript
+
+- Tailwind CSS
+
+- Node Js
+
+- Express Js
+
+- Mongoose
+
+- Firebase
+
+- React Hook Form
