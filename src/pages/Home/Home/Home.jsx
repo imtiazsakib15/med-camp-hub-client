@@ -3,6 +3,7 @@ import Slider from "../Slider/Slider";
 import Newsletter from "../Newsletter/Newsletter";
 import PopularCamps from "../PopularCamps/PopularCamps";
 import AboutUs from "../AboutUs/AboutUs";
+import ChatSupport from "../../Shared/ChatSupport/ChatSupport";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <AboutUs />
       <PopularCamps />
       <Newsletter />
+      <ChatSupport />
     </>
   );
 };
