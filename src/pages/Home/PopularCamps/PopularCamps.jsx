@@ -12,11 +12,11 @@ const PopularCamps = () => {
     queryFn: async () => await axiosPublic.get("/popular-camps"),
   });
   const camps = data?.data || [];
-  // console.log(camps);
+
   return (
     <>
       <h1 className="text-xl sm:text-2xl lg:text-4xl font-bold text-center mb-6 sm:mb-10 mt-10">
-        Popular Items
+        Popular Camps
       </h1>
       <SectionContainer>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 pb-6 md:pb-8">
