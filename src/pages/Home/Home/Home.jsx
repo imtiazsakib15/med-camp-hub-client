@@ -4,6 +4,7 @@ import Newsletter from "../Newsletter/Newsletter";
 import PopularCamps from "../PopularCamps/PopularCamps";
 import AboutUs from "../AboutUs/AboutUs";
 import ChatSupport from "../../Shared/ChatSupport/ChatSupport";
+import Testimonials from "../Testimonials/Testimonials";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <Slider />
       <AboutUs />
       <PopularCamps />
+      <Testimonials />
       <Newsletter />
       <ChatSupport />
     </>
