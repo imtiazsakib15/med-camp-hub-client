@@ -164,10 +164,9 @@ const Register = () => {
                               "Password should contain less than 32 characters.",
                           },
                           pattern: {
-                            value:
-                              /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@$%#^&(){}*`.:;<>,?~_+=|-])/,
+                            value: /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])/,
                             message:
-                              "Password should have at least one small letter, one capital letter, one number, and one special character.",
+                              "Password should have at least one capital letter, and a number.",
                           },
                         })}
                         className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-violet-500 focus:ring-violet-500 disabled:opacity-50 disabled:pointer-events-none border"
@@ -198,9 +197,6 @@ const Register = () => {
                       >
                         <option value="">Choose a role</option>
                         <option value="Organizer">Organizer</option>
-                        <option value="Healthcare Professional">
-                          Healthcare Professional
-                        </option>
                         <option value="Participant">Participant</option>
                       </select>
                       <p>
