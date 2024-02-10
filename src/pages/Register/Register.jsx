@@ -164,7 +164,7 @@ const Register = () => {
                               "Password should contain less than 32 characters.",
                           },
                           pattern: {
-                            value: /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])/,
+                            value: /(?=.*[0-9])(?=.*[A-Z])/,
                             message:
                               "Password should have at least one capital letter, and a number.",
                           },

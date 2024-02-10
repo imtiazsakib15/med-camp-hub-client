@@ -5,6 +5,7 @@ import PopularCamps from "../PopularCamps/PopularCamps";
 import AboutUs from "../AboutUs/AboutUs";
 import ChatSupport from "../../Shared/ChatSupport/ChatSupport";
 import Testimonials from "../Testimonials/Testimonials";
+import Blog from "../Blog/Blog";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <AboutUs />
       <PopularCamps />
       <Testimonials />
+      <Blog />
       <Newsletter />
       <ChatSupport />
     </>
