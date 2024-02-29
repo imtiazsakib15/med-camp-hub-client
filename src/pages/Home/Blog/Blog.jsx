@@ -22,7 +22,7 @@ const Blog = () => {
           </p>
           <Link
             to="/"
-            className="inline-flex items-center font-medium text-blue-600 hover:text-blue-800"
+            className="inline-flex items-center font-medium text-violet-600 hover:text-violet-800"
           >
             Learn more
             <svg
@@ -54,7 +54,7 @@ const Blog = () => {
           </p>
           <Link
             to="/"
-            className="inline-flex items-center font-medium text-blue-600 hover:text-blue-800"
+            className="inline-flex items-center font-medium text-violet-600 hover:text-violet-800"
           >
             Learn more
             <svg
@@ -86,7 +86,7 @@ const Blog = () => {
           </p>
           <Link
             to="/"
-            className="inline-flex items-center font-medium text-blue-600 hover:text-blue-800"
+            className="inline-flex items-center font-medium text-violet-600 hover:text-violet-800"
           >
             Learn more
             <svg

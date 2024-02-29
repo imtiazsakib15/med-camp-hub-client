@@ -4,7 +4,7 @@ import SectionContainer from "../../Shared/SectionContainer/SectionContainer";
 const AboutUs = () => {
   return (
     <SectionContainer>
-      <div className="flex items-center flex-col-reverse lg:flex-row gap-12 my-14 md:my-20 overflow-hidden">
+      <div className="flex items-center flex-col-reverse lg:flex-row gap-10 my-14 md:my-20 overflow-hidden">
         <div className="lg:w-1/2" data-aos="fade-right">
           <img
             className="rounded-md max-h-[550px] w-full"
@@ -12,7 +12,7 @@ const AboutUs = () => {
             alt="About Us"
           />
         </div>
-        <div className="lg:w-1/2 space-y-5" data-aos="fade-left">
+        <div className="lg:w-1/2 space-y-3" data-aos="fade-left">
           <h2 className="text-xl sm:text-3xl font-bold text-center lg:text-left">
             About Us
           </h2>
